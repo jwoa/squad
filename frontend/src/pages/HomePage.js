@@ -26,7 +26,8 @@ const HomePage = ({ match }) => {
         <>
             <Meta/>
             {!keyword ? (
-                <ProjectCarousel />
+                // <ProjectCarousel />
+                <h1>Product Carousel was here</h1>
             ) : (
                 <Link to='/' className='btn btn-light'>
                 Go Back

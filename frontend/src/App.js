@@ -28,7 +28,6 @@ const App = () => {
           <Route path='/admin/projectlist' component={ProjectListPage} exact />
           <Route path='/admin/projectlist/:pageNumber' component={ProjectListPage}  exact/>
           <Route path='/admin/project/:id/edit' component={ProjectEditPage} />
-          <Route path='/admin/orderlist' component={OrderListPage} />
           <Route path='/search/:keyword' component={HomePage} exact/>
           <Route path='/page/:pageNumber' component={HomePage} />
           <Route path='/search/:keyword/page/:pageNumber' component={HomePage} />

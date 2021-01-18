@@ -16,10 +16,7 @@ import {
     PROJECT_UPDATE_FAIL,
     PROJECT_CREATE_TASK_REQUEST,
     PROJECT_CREATE_TASK_SUCCESS,
-    PROJECT_CREATE_TASK_FAIL,
-    PROJECT_TOP_REQUEST,
-    PROJECT_TOP_SUCCESS,
-    PROJECT_TOP_FAIL,
+    PROJECT_CREATE_TASK_FAIL
 } from '../constants/projectConstants';
 
 import axios from 'axios';
@@ -171,24 +168,6 @@ export const createProjectTask = (projectId, task) => async (dispatch, getState)
     } catch (error) {
         dispatch({
             type: PROJECT_CREATE_TASK_FAIL,
-            payload: error.response && error.response.data.message ? error.response.data.message : error.message
-        })
-    }
-}
-
-export const listTopProjects = () => async (dispatch) => {
-    try {
-        dispatch({ type: PROJECT_TOP_REQUEST })
-
-        const { data } = await axios.get(`/api/projects/top`)
-
-        dispatch({
-            type: PROJECT_TOP_SUCCESS,
-            payload: data
-        })
-    } catch (error) {
-        dispatch({
-            type: PROJECT_TOP_FAIL,
             payload: error.response && error.response.data.message ? error.response.data.message : error.message
         })
     }

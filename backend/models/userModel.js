@@ -14,15 +14,17 @@ const userSchema = mongoose.Schema({
     phone: {
         type: Number,
         required: false,
-        unique: false
+        unique: true
     },
     bio: {
         type: String,
         required: false,
+        default: 'Squad member'
     },
     avatar: {
         type: String,
-        required: false
+        required: false,
+        default: 'https://icon-library.com/images/default-user-icon/default-user-icon-4.jpg'
     },
     password: {
         type: String,

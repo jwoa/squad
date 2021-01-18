@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import Message from '../components/Message'
 import Loader from '../components/Loader'
 import { getUserDetails, updateUserProfile } from '../actions/userActions'
-import { listMyOrders } from '../actions/orderActions'
+// import { listMyOrders } from '../actions/orderActions'
 
 const ProfilePage = ({ location, history }) => {
     const [name, setName] = useState('')
@@ -25,8 +25,8 @@ const ProfilePage = ({ location, history }) => {
     const userUpdateProfile = useSelector(state => state.userUpdateProfile)
     const { success } = userUpdateProfile;
 
-    const orderListMy = useSelector(state => state.orderListMy)
-    const { loading:loadingOrders, error:errorOrders, orders } = orderListMy;
+    // const orderListMy = useSelector(state => state.orderListMy)
+    // const { loading:loadingOrders, error:errorOrders, orders } = orderListMy;
 
     useEffect(() => {
         if(!userInfo) {
@@ -34,7 +34,7 @@ const ProfilePage = ({ location, history }) => {
         } else {
             if(!user.name) {
                 dispatch(getUserDetails('profile'))
-                dispatch(listMyOrders())
+                // dispatch(listMyOrders())
             } else {
                 setName(user.name)
                 setEmail(user.email)
@@ -106,7 +106,7 @@ const ProfilePage = ({ location, history }) => {
                     </Button>
                 </Form>
             </Col>
-            <Col md={9}>
+            {/* <Col md={9}>
                 <h2>My Orders</h2>
                 {loadingOrders ? <Loader /> : errorOrders ? <Message variant='danger'>{errorOrders}</Message> : (
                     <Table striped bordered hover responsive className='table-sm'>
@@ -142,7 +142,7 @@ const ProfilePage = ({ location, history }) => {
                         </tbody>
                     </Table>
                 )}
-            </Col>
+            </Col> */}
         </Row>
     )
 }

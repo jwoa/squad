@@ -36,9 +36,9 @@ const [description, setDescription] = useState('')
         dispatch(listProjectDetails(match.params.id))
     }, [dispatch, match, successProjectTask])
     
-    const addToCartHandler = () => {
-        history.push(`/cart/${match.params.id}?qty=${qty}`)
-    }
+    // const addToCartHandler = () => {
+    //     history.push(`/cart/${match.params.id}?qty=${qty}`)
+    // }
 
     const submitHandler = (e) => {
         e.preventDefault()

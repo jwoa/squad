@@ -20,7 +20,7 @@ const Project = ({ project }) => {
                     {project.numTasks} tasks
                 </Card.Text>
 
-                <Card.Text as='h3'>${project.price}</Card.Text>
+                <Card.Text as='h3'>${project.budget}</Card.Text>
                 </Card.Body>
             </Card>
     )

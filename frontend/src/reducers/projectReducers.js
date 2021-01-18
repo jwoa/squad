@@ -19,10 +19,7 @@ import {
     PROJECT_CREATE_TASK_REQUEST,
     PROJECT_CREATE_TASK_SUCCESS,
     PROJECT_CREATE_TASK_FAIL,
-    PROJECT_CREATE_TASK_RESET,
-    PROJECT_TOP_FAIL,
-    PROJECT_TOP_SUCCESS,
-    PROJECT_TOP_REQUEST
+    PROJECT_CREATE_TASK_RESET
 } from '../constants/projectConstants'
 
 export const projectListReducer = (state = { projects: [] }, action) => {
@@ -38,7 +35,7 @@ export const projectListReducer = (state = { projects: [] }, action) => {
     }
 }
 
-export const projectDetailsReducer = (state = { project: { reviews: [] } }, action) => {
+export const projectDetailsReducer = (state = { project: { tasks: [] } }, action) => {
     switch(action.type) {
         case PROJECT_DETAILS_REQUEST:
             return { loading: true, ...state }
@@ -94,7 +91,7 @@ export const projectUpdateReducer = (state = { project: {} }, action) => {
     }
 }
 
-export const projectCreateReviewReducer = (state = { }, action) => {
+export const projectCreateTaskReducer = (state = { }, action) => {
     switch(action.type) {
         case PROJECT_CREATE_TASK_REQUEST:
             return { loading: true }
@@ -104,19 +101,6 @@ export const projectCreateReviewReducer = (state = { }, action) => {
             return { loading: false, error: action.payload }
         case PROJECT_CREATE_TASK_RESET:
             return { }
-        default:
-            return state
-    }
-}
-
-export const projectTopRatedReducer = (state = { projects: [] }, action) => {
-    switch(action.type) {
-        case PROJECT_TOP_REQUEST:
-            return { loading: true, projects: [] }
-        case PROJECT_TOP_SUCCESS:
-            return { loading: false, projects: action.payload }
-        case PROJECT_TOP_FAIL:
-            return { loading: false, error: action.payload }
         default:
             return state
     }
